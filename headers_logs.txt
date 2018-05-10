@@ -1,0 +1,89 @@
+curl -X PUT "localhost:9200/logs_apigee" -H 'Content-Type: application/json' -d'
+{
+  "mappings": {
+    "apigee": {
+      "properties": {
+         "apiparent" : {
+            "type" : "text"
+            
+          },
+          "be_id" : {
+            "type" : "long"
+          },          
+          "inout" : {
+            "type" : "text"
+            
+          },
+          "iserror" : {
+            "type" : "long"
+          },
+          "logdata" : {
+            "type" : "text"
+            
+          },
+          "logtimestamp" : {            
+            "type" : "date",
+            "format": "yyyy-MM-dd HH:mm:ss"
+            
+          },
+          "msisdn" : {
+            "type" : "float"
+          },
+          "processdate" : {
+            "type" : "date",
+            "format": "yyyy-MM-dd HH:mm:ss"
+            
+          },
+          "processing_hour" : {
+            "type" : "date",
+            "format": "yyyyMMddHH"
+          },
+          "resource" : {
+            "type" : "text"
+            
+          },
+          "responsecode" : {
+            "type" : "float"
+          },
+          "responsetype" : {
+            "type" : "text"
+            
+          },
+          "subtransactionid" : {
+            "type" : "float"
+          },
+          "target" : {
+            "type" : "text"
+            
+          },
+          "transactionid" : {
+            "type" : "text"
+            
+          }
+      }
+    }
+  }
+} 
+'
+
+
+
+
+
+# Create the two indices
+curl -X PUT "localhost:9200/twitter-1"
+curl -X PUT "localhost:9200/twitter-2"
+# Update both mappings
+curl -X PUT "localhost:9200/twitter-1,twitter-2/_mapping/_doc" -H 'Content-Type: application/json' -d'
+{
+  "properties": {
+    "user_name": {
+      "type": "text"
+    }
+  }
+}
+'
+
+'
+
+

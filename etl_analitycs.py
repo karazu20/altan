@@ -32,7 +32,7 @@ dbname = 'altan'
 protocol = 'json'
 
 init_date = "04/01/2018"
-end_date = "05/04/2018"
+end_date = "05/18/2018"
 
 timestamp = unix_time_millis(datetime.datetime.strptime(init_date + ' 00:00:00','%m/%d/%Y %H:%M:%S')) * 1000000
 
@@ -104,6 +104,7 @@ for key,value in dimensions.iteritems():
 				
 				panda[value_column] = panda[value_column].astype(float).fillna(0.0)
 				panda[tag] = panda[tag].fillna('---------')
+				client.write_points(panda, 'apigee_analitycs',tag_columns=[tag], field_columns=[value_column], protocol=protocol)
 
 				#print panda
 				   
@@ -111,6 +112,5 @@ for key,value in dimensions.iteritems():
 		  # If response code is not ok (200), print the resulting http error code with description
 			myResponse.raise_for_status()
 
-ints(panda_aux, 'apigee_analitycs',tag_columns=dimensions.keys(), field_columns=metrics.keys())
 client.close()
 

@@ -8,7 +8,7 @@ from elasticsearch.helpers import bulk
 
 # init ElasticSearch
 es = Elasticsearch('http://localhost:9200/')
-INDEX_NAME = 'apigee'
+INDEX_NAME = 'logs'
 
 #load data json
 df = pd.read_csv("query-impala-5898-orig.csv")

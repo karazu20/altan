@@ -1,51 +1,16 @@
-curl -X PUT "localhost:9200/logs_apigee" -H 'Content-Type: application/json' -d'
+
+inout,transactionid,subtransactionid,target,resource,msisdn,apiparent,logtimestamp,logdata,filename,responsecode,responsetype,iserror,processdate,processing_hour,be_id
+
+curl -X PUT "localhost:9200/logs" -H 'Content-Type: application/json' -d'
 {
   "mappings": {
-    "apigee": {
+    "logs": {
       "properties": {
-         "apiparent" : {
+         "inout" : {
             "type" : "text"
             
           },
-          "be_id" : {
-            "type" : "long"
-          },          
-          "inout" : {
-            "type" : "text"
-            
-          },
-          "iserror" : {
-            "type" : "long"
-          },
-          "logdata" : {
-            "type" : "text"
-            
-          },
-          "logtimestamp" : {            
-            "type" : "date",
-            "format": "yyyy-MM-dd HH:mm:ss"
-            
-          },
-          "msisdn" : {
-            "type" : "float"
-          },
-          "processdate" : {
-            "type" : "date",
-            "format": "yyyy-MM-dd HH:mm:ss"
-            
-          },
-          "processing_hour" : {
-            "type" : "date",
-            "format": "yyyyMMddHH"
-          },
-          "resource" : {
-            "type" : "text"
-            
-          },
-          "responsecode" : {
-            "type" : "float"
-          },
-          "responsetype" : {
+          "transactionid" : {
             "type" : "text"
             
           },
@@ -56,10 +21,53 @@ curl -X PUT "localhost:9200/logs_apigee" -H 'Content-Type: application/json' -d'
             "type" : "text"
             
           },
-          "transactionid" : {
+          "resource" : {
             "type" : "text"
             
-          }
+          },
+          "msisdn" : {
+            "type" : "float"
+          },
+         "apiparent" : {
+            "type" : "text"
+            
+          },
+          "logtimestamp" : {            
+            "type" : "date",
+            "format": "yyyy-MM-dd HH:mm:ss"
+            
+          },
+          "logdata" : {
+            "type" : "text"
+            
+          },
+          "filename" : {
+            "type" : "text"
+            
+          },
+          "responsecode" : {
+            "type" : "float"
+          },
+          "responsetype" : {
+            "type" : "text"
+            
+          },                              
+          "iserror" : {
+            "type" : "long"
+          },
+                            
+          "processdate" : {
+            "type" : "date",
+            "format": "yyyy-MM-dd HH:mm:ss"
+            
+          },
+          "processing_hour" : {
+            "type" : "date",
+            "format": "yyyyMMddHH"
+          },
+          "be_id" : {
+            "type" : "long"
+          },                              
       }
     }
   }

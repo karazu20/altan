@@ -21,9 +21,8 @@ $ pip install -r requirements.txt
 ```
 
 ## Ejecución ETL analitycs 'etl_analitycs'
-###Necesita parametros de ejecución periodo y tipo que por defaul debe ser 'analitycs', sólo debe de cambiar el periodo
-###Valores posibles de periodo ('all', 'month', 'week', 'day')
-###Ejemplo
+Necesita parametros de ejecución periodo y tipo que por defaul debe ser 'analitycs', sólo debe de cambiar el periodo
+Valores posibles de periodo ('all', 'month', 'week', 'day'), Ejemplo
 ```
 $ python etl_analitycs.py "analitycs" "all"
 

@@ -41,7 +41,7 @@ init_date = periodos['start_date']
 end_date =  periodos['end_date']
 
 #timestamp for normalize data
-timestamp = unix_time_millis(datetime.datetime.strptime(init_date + ' 00:00:00','%m/%d/%Y %H:%M:%S')) * 1000000
+timestamp = unix_time_millis(datetime.datetime.strptime(init_date + ' 00:00:00','%m/%d/%Y %H:%M:%S')) 
 
 
 
@@ -78,7 +78,7 @@ analitycs = [
 
 				{ 	
 					'name' : 'proxy',
-					'dimension' : 'proxy',
+					'dimension' : 'apiproxy',
 					'metrics' : metrics
 				},
 
@@ -123,7 +123,7 @@ for analityc in analitycs:
 		if myResponse.status_code==200:
 		   	#print '--------------------------------  ' + dim + '   ' + metric +'  -------------------------------'
 			jData = json.loads(myResponse.content)
-
+			print json.dumps(jData, indent=4, sort_keys=True)
 			for elem in jData['environments'][0]['dimensions'] :				
 				#print json.dumps(elem, indent=4, sort_keys=True)
 				panda = json_normalize(elem, ['metrics','values'])
@@ -134,14 +134,14 @@ for analityc in analitycs:
 				if  panda.empty:
 					d = {'time': [timestamp] , value_column: [0.0], tag: ['-----']}
 					panda = pd.DataFrame(data=d)
-					#print panda	
+					print "panda vacio	"
 
 				panda = panda.set_index(['time'])
 				panda.index = pd.to_datetime(panda.index, unit='ms')
 				
 				panda[value_column] = panda[value_column].astype(float).fillna(0.0)
 				panda[tag] = panda[tag].fillna('---------')
-				print panda
+				#print panda
 				client.write_points(panda, serie ,tag_columns=[tag], field_columns=[value_column], protocol=protocol)
 				
 				   

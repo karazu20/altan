@@ -73,7 +73,7 @@ def dia(date, format_date):
 
     #set hours
     start_date = last_day.replace(hour=00, minute=00,  second=00)
-    end_date = last_day.replace(hour=23, minute=59,  second=59)
+    end_date = date.replace(hour=00, minute=00,  second=00)
 
     print "Calculo por dia"
     start_date = str(start_date.strftime(format_date))

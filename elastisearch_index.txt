@@ -1,0 +1,73 @@
+curl -u elastic:3k1SFYrhEofnu9JfbfRB -X PUT "localhost:9200/logs_errors5" -H 'Content-Type: application/json' -d'
+{
+  "mappings": {
+    "logs_errors5": {
+      "properties": {
+         "inout" : {
+            "type" : "keyword"
+            
+          },
+          "transactionid" : {
+            "type" : "keyword"
+            
+          },
+          "subtransactionid" : {
+            "type" : "float"
+          },
+          "target" : {
+            "type" : "keyword"
+            
+          },
+          "resource" : {
+            "type" : "keyword"
+            
+          },
+          "msisdn" : {
+            "type" : "float"
+          },
+         "apiparent" : {
+            "type" : "keyword"
+            
+          },
+          "logtimestamp" : {            
+            "type" : "date",
+            "format": "yyyy-MM-dd HH:mm:ss"
+            
+          },
+          "logdata" : {
+            "type" : "keyword"
+            
+          },
+
+          "filename" : {
+            "type" : "keyword"
+            
+          },
+          "responsecode" : {
+            "type" : "float"
+          },
+          "responsetype" : {
+            "type" : "keyword"
+            
+          },                              
+          "iserror" : {
+            "type" : "long"
+          },
+                            
+          "processdate" : {
+            "type" : "date",
+            "format": "yyyy-MM-dd HH:mm:ss"
+            
+          },
+          "processing_hour" : {
+            "type" : "date",
+            "format": "yyyyMMddHH"
+          },
+          "be_id" : {
+            "type" : "long"
+          }                             
+      }
+    }
+  }
+} 
+'

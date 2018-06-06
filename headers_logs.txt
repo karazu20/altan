@@ -15,25 +15,25 @@ curl -X PUT "localhost:9200/logs_bdl" -H 'Content-Type: application/json' -d'
             
           },
           "transactionid" : {
-            "type" : "text"
+            "type" : "keyword"
             
           },
           "subtransactionid" : {
             "type" : "float"
           },
           "target" : {
-            "type" : "text"
+            "type" : "keyword"
             
           },
           "resource" : {
-            "type" : "text"
+            "type" : "keyword"
             
           },
           "msisdn" : {
             "type" : "float"
           },         
           "apiparent" : {
-            "type" : "text"
+            "type" : "keyword"
             
           },
           "logtimestamp" : {            
@@ -42,22 +42,22 @@ curl -X PUT "localhost:9200/logs_bdl" -H 'Content-Type: application/json' -d'
             
           },
           "operation" : {
-            "type" : "text"
+            "type" : "keyword"
             
           },
           "logdata" : {
-            "type" : "text"
+            "type" : "keyword"
             
           },
           "filename" : {
-            "type" : "text"
+            "type" : "keyword"
             
           },
           "responsecode" : {
             "type" : "float"
           },
           "responsetype" : {
-            "type" : "text"
+            "type" : "keyword"
             
           },                              
           "iserror" : {
@@ -65,7 +65,7 @@ curl -X PUT "localhost:9200/logs_bdl" -H 'Content-Type: application/json' -d'
           },                                     
           "be_id" : {
             "type" : "long"
-          },                              
+          }                             
       }
     }
   }

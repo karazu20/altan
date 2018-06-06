@@ -1,10 +1,14 @@
 
 inout,transactionid,subtransactionid,target,resource,msisdn,apiparent,logtimestamp,logdata,filename,responsecode,responsetype,iserror,processdate,processing_hour,be_id
 
-curl -X PUT "localhost:9200/logs" -H 'Content-Type: application/json' -d'
+col = "inout,transactionid,subtransactionid,target,resource,msisdn,apiparent,logtimestamp,operation,logdata,filename,responsecode,responsetype,be_id" 
+
+
+
+curl -X PUT "localhost:9200/logs_bdl" -H 'Content-Type: application/json' -d'
 {
   "mappings": {
-    "logs": {
+    "logs_bdl": {
       "properties": {
          "inout" : {
             "type" : "text"
@@ -27,14 +31,18 @@ curl -X PUT "localhost:9200/logs" -H 'Content-Type: application/json' -d'
           },
           "msisdn" : {
             "type" : "float"
-          },
-         "apiparent" : {
+          },         
+          "apiparent" : {
             "type" : "text"
             
           },
           "logtimestamp" : {            
             "type" : "date",
             "format": "yyyy-MM-dd HH:mm:ss"
+            
+          },
+          "operation" : {
+            "type" : "text"
             
           },
           "logdata" : {
@@ -54,17 +62,7 @@ curl -X PUT "localhost:9200/logs" -H 'Content-Type: application/json' -d'
           },                              
           "iserror" : {
             "type" : "long"
-          },
-                            
-          "processdate" : {
-            "type" : "date",
-            "format": "yyyy-MM-dd HH:mm:ss"
-            
-          },
-          "processing_hour" : {
-            "type" : "date",
-            "format": "yyyyMMddHH"
-          },
+          },                                     
           "be_id" : {
             "type" : "long"
           },                              

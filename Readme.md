@@ -28,11 +28,27 @@ $ python etl_analitycs.py "analitycs" "all"
 
 ```
 
-## Ejecución ETL analitycs 'etl_custom_metric'
+## Ejecución ETL analitycs metricas  disponibilidad y confiabilidad 'etl_custom_metric'
 Necesita parametros de ejecución periodo y tipo que por defaul debe ser 'analitycs', sólo debe de cambiar el periodo
 Valores posibles de periodo ('all', 'month', 'week', 'day'), ejemplo:
 ```
 $ python etl_custom_metric.py "analitycs" "all"
+
+```
+
+## Ejecución ETL analitycs insumos csv para el bdl 'etl_bdl'
+Necesita parametros de ejecución periodo y tipo que por defaul debe ser 'analitycs', sólo debe de cambiar el periodo
+Valores posibles de periodo ('all', 'month', 'week', 'day'), ejemplo:
+```
+$ python etl_bdl.py "analitycs" "week"
+
+```
+
+## Ejecución ETL Logs  'etl_logs'
+Necesita parametros de ejecución periodo y tipo que por defaul debe ser 'logs', sólo debe de cambiar el periodo
+Valores posibles de periodo ('all', 'month', 'week', 'day'), ejemplo:
+```
+$ python etl_logs.py "logs" "hour"
 
 ```
 

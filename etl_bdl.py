@@ -10,13 +10,18 @@ import time
 import datetime
 import numpy as np
 from time_utils import *
+from message_utils import *
 import sys
+from datetime import datetime as dt
 
 
-#For calculate timestamp
-epoch = datetime.datetime.utcfromtimestamp(0)
-def unix_time_millis(dt):
-	return int((dt - epoch).total_seconds() * 1000)
+
+#apigee_analytics_yyyymmddhhmmss.csv  
+def get_namefile(init_date):
+	day_execute = dt.strptime(init_date + " 23:59:59" ,'%m/%d/%Y %H:%M:%S')
+	prefix = str(day_execute.strftime('%Y%m%d%H%M%S'))
+	return 'apigee_analytics_' + prefix + '.csv'
+
 
 #Credentials api management
 user='abraham.martinez.ramirez@everis.com'
@@ -163,7 +168,7 @@ for analityc in analitycs:
 				if  panda.empty:
 					d = {'timestamp': [timestamp] , 'value': [0.0]}
 					panda = pd.DataFrame(data=d)
-					print panda
+					#print panda
 					
 				#Create index time
 				panda = panda.set_index(['timestamp'])
@@ -202,7 +207,15 @@ for analityc in analitycs:
 	#Concat frames and save reults to csv and clean data	
 	result = pd.concat(pandas_list.values())
 	df = result[(result[analityc['metrics'].keys()] != 0).any(axis=1)]
-	#result.to_csv(path_or_buf='csvs_bdl/panda_' + tag + '.csv')				   
-	df.to_csv(path_or_buf='csvs_bdl/df_' + tag + '.csv')				   
+	
+	#Write file csv
+	name_file= get_namefile(init_date)				   
+	print name_file
+	df.to_csv(path_or_buf='csvs_bdl/' + name_file)				   
+
+	#Send file for sftp
+	sendFile('csvs_bdl/'+name_file, name_file)
+	print 'Archivo enviado'
+
 
 

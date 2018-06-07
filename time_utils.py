@@ -74,6 +74,7 @@ def dia(date, format_date):
     #set hours
     start_date = last_day.replace(hour=00, minute=00,  second=00)
     end_date = date.replace(hour=00, minute=00,  second=00)
+    #end_date = last_day.replace(hour=23, minute=59,  second=59)
 
     print "Calculo por dia"
     start_date = str(start_date.strftime(format_date))
@@ -149,11 +150,3 @@ def get_periods (type_etl, option):
         print "Invalid periods"
         exit()
 
-
-#semana(datetime.date(2018, 6, 4))
-
-#mes(datetime.date(2018, 5, 1))
-
-#dia(datetime.date(2018, 6, 1))
-
-#hora(datetime.datetime.now())

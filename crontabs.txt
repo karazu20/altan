@@ -1,0 +1,4 @@
+1 */1 * * * /usr/bin/python2.7 etl_logs.py "logs" "hour" > traza_logs.txt
+1 8 * * * /usr/bin/python2.7 etl_bdl.py "analitycs" "day" > traza_bdl.txt
+1 9 * * * /usr/bin/python2.7 etl_custom_metric.py "analitycs" "day" > traza_metrics.txt
+1 10 * * mon /usr/bin/python2.7 etl_analitycs.py "analitycs" "week" > traza_manalitycs.txt

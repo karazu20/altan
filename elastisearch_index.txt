@@ -4,7 +4,7 @@ curl -u elastic:3k1SFYrhEofnu9JfbfRB -X PUT "localhost:9200/logs_errors5" -H 'Co
     "logs_errors5": {
       "properties": {
          "inout" : {
-            "type" : "text"
+            "type" : "keyword"
             
           },
           "transactionid" : {

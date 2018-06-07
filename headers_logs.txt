@@ -11,7 +11,7 @@ curl -X PUT "localhost:9200/logs_bdl" -H 'Content-Type: application/json' -d'
     "logs_bdl": {
       "properties": {
          "inout" : {
-            "type" : "keyword"
+            "type" : "text"
             
           },
           "transactionid" : {

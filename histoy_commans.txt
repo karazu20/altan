@@ -1,0 +1,266 @@
+    1  wget https://dl.influxdata.com/influxdb/releases/influxdb_1.5.3_amd64.deb
+    2  sudo dpkg -i influxdb_1.5.3_amd64.deb
+    3  sudo apt-get update && sudo apt-get install influxdb
+    4  sudo systemctl start influxdb
+    5  wget https://dl.influxdata.com/kapacitor/releases/kapacitor_1.4.0_amd64.deb
+    6  sudo dpkg -i kapacitor_1.4.0_amd64.deb
+    7  sudo systemctl start kapacitor
+    8  wget https://dl.influxdata.com/chronograf/releases/chronograf_1.5.0.0_amd64.deb
+    9  sudo dpkg -i chronograf_1.5.0.0_amd64.deb
+   10  sudo systemctl start chronograf
+   11  sudo add-apt-repository -y ppa:webupd8team/java
+   12  sudo apt-get update
+   13  sudo apt-get -y install oracle-java8-installer
+   14  wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+   15  sudo apt-get install apt-transport-https
+   16  echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+   17  sudo apt-get update && sudo apt-get install elasticsearch
+   18  sudo systemctl enable elasticsearch
+   19  sudo systemctl start elasticsearch.service
+   20  sudo apt install curl
+   21  curl -X GET "localhost:9200/"
+   22  echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+   23  sudo apt-get update && sudo apt-get install kibana
+   24  sudo systemctl daemon-reload
+   25  sudo systemctl enable kibana
+   26  sudo systemctl start kibana
+   27  mkdir Scripts
+   28  exit
+   29  sudo apt update
+   30  sudo apt install virtualenv
+   31  virtualenv .env
+   32  sudo virtualenv .env
+   33  source .env/bin/activate
+   34  clear
+   35  sudo virtualenv .env
+   36  virtualenv .env
+   37  clear
+   38  virtualenv .env
+   39  pip install -r requirements.txt
+   40  sudo apt install python-pip
+   41  pip install -r requirements.txt
+   42  ls -l
+   43  pip install -r requeriments.txt
+   44  clear
+   45  virtualenv .env
+   46  source .env/bin/activate
+   47  python etl_analitycs.py "analitycs" "all"
+   48  sudo pip install requests
+   49  python etl_analitycs.py "analitycs" "all"
+   50  apt-get install python-requests
+   51  sudo apt-get install python-requests
+   52  python etl_analitycs.py "analitycs" "all"
+   53  cleart
+   54  clear
+   55  python etl_analitycs.py "analitycs" "all"
+   56  sudo pip install requests
+   57  python etl_analitycs.py "analitycs" "all"
+   58  clear
+   59  python etl_analitycs.py "analitycs" "all"
+   60  python -version
+   61  python
+   62  clear
+   63  exit
+   64  influx
+   65  sudo pip install requests
+   66  virtualenv .env
+   67  source .env/bin/activate
+   68  clear
+   69  pip install -r requirements.txt
+   70  ls -l
+   71  pip install -r requeriments.txt
+   72  python etl_analitycs.py "analitycs" "all"
+   73  clear
+   74  ls -l
+   75  python etl_custom_metric.py "analitycs" "all"
+   76  use influx
+   77  influx
+   78  clear
+   79  influx
+   80  exit
+   81  cd Docuemtnos
+   82  cd Documentos/
+   83  cd Scripts/
+   84  ls -l
+   85  cd altan-master/
+   86  ls -l
+   87  virtualenv .env
+   88  source .env/bin/activate
+   89  python etl_analitycs.py "analitycs" "all"
+   90  python etl_custom_metric.py "analitycs" "all"
+   91  clear
+   92  python -v
+   93  clear
+   94  curl -X PUT "localhost:9200/logs_bdl" -H 'Content-Type: application/json' -d'
+   95  {
+   96    "mappings": {
+   97      "logs_bdl": {
+   98        "properties": {
+   99           "inout" : {
+  100              "type" : "keyword"
+  101              
+  102            },
+  103            "transactionid" : {
+  104              "type" : "keyword"
+  105              
+  106            },
+  107            "subtransactionid" : {
+  108              "type" : "float"
+  109            },
+  110            "target" : {
+  111              "type" : "keyword"
+  112              
+  113            },
+  114            "resource" : {
+  115              "type" : "keyword"
+  116              
+  117            },
+  118            "msisdn" : {
+  119              "type" : "float"
+  120            },         
+  121            "apiparent" : {
+  122              "type" : "keyword"
+  123              
+  124            },
+  125            "logtimestamp" : {            
+  126              "type" : "date",
+  127              "format": "yyyy-MM-dd HH:mm:ss"
+  128              
+  129            },
+  130            "operation" : {
+  131              "type" : "keyword"
+  132              
+  133            },
+  134            "logdata" : {
+  135              "type" : "keyword"
+  136              
+  137            },
+  138            "filename" : {
+  139              "type" : "keyword"
+  140              
+  141            },
+  142            "responsecode" : {
+  143              "type" : "float"
+  144            },
+  145            "responsetype" : {
+  146              "type" : "keyword"
+  147              
+  148            },                              
+  149            "iserror" : {
+  150              "type" : "long"
+  151            },                                     
+  152            "be_id" : {
+  153              "type" : "long"
+  154            },                              
+  155        }
+  156      }
+  157    }
+  158  } 
+  159  '
+  160  clear
+  161  curl -X PUT "localhost:9200/logs_bdl" -H 'Content-Type: application/json' -d'
+  162  {
+  163    "mappings": {
+  164      "logs_bdl": {
+  165        "properties": {
+  166           "inout" : {
+  167              "type" : "keyword"
+  168              
+  169            },
+  170            "transactionid" : {
+  171              "type" : "keyword"
+  172              
+  173            },
+  174            "subtransactionid" : {
+  175              "type" : "float"
+  176            },
+  177            "target" : {
+  178              "type" : "keyword"
+  179              
+  180            },
+  181            "resource" : {
+  182              "type" : "keyword"
+  183              
+  184            },
+  185            "msisdn" : {
+  186              "type" : "float"
+  187            },         
+  188            "apiparent" : {
+  189              "type" : "keyword"
+  190              
+  191            },
+  192            "logtimestamp" : {            
+  193              "type" : "date",
+  194              "format": "yyyy-MM-dd HH:mm:ss"
+  195              
+  196            },
+  197            "operation" : {
+  198              "type" : "keyword"
+  199              
+  200            },
+  201            "logdata" : {
+  202              "type" : "keyword"
+  203              
+  204            },
+  205            "filename" : {
+  206              "type" : "keyword"
+  207              
+  208            },
+  209            "responsecode" : {
+  210              "type" : "float"
+  211            },
+  212            "responsetype" : {
+  213              "type" : "keyword"
+  214              
+  215            },                              
+  216            "iserror" : {
+  217              "type" : "long"
+  218            },                                     
+  219            "be_id" : {
+  220              "type" : "long"
+  221            }                              
+  222        }
+  223      }
+  224    }
+  225  } 
+  226  '
+  227  python csv_to_elastic.py 
+  228  ls -l
+  229  rm -r 'altan-master(1)'
+  230  rm -r 'altan-master(1) (1)'
+  231  rm -r altan-master.zip
+  232  ls -l
+  233  rm -r 'altan-master(1).zip'
+  234  clear
+  235  ls -l
+  236  rm -r altan-master/
+  237  exit
+  238  rm -r altan-master.zip 
+  239  clear
+  240  exit
+  241  rm -r altan-master/
+  242  clear
+  243  exir
+  244  exit
+  245  rm -r carpetaPrueba/
+  246  clear
+  247  rm -r clouderaimpalaodbc_2.5.41.1029-2_amd64
+  248  clear
+  249  sudo apt-get install libsasl2-2
+  250  sudo apt-get install libsasl2-2-dev
+  251  sudo apt-get install libsasl2-modules
+  252  ls /opt
+  253  clear
+  254  ls -l /opt/cloudera/impalaodbc/lib/64/
+  255  sudo apt-get install python-dev
+  256  sudo apt-get install libsasl2-modules-db
+  257  sudo apt-get install libsasl2-dev
+  258  sudo apt-get install libsasl2-modules-gssapi-heimdal
+  259  sudo apt-get install libsasl2-modules-gssapi-mit
+  260  sudo apt-get install libsasl2-modules-ldap
+  261  sudo apt-get install libsasl2-modules-otp
+  262  sudo apt-get install libsasl2-modules-sql
+  263  sudo apt-get install libkrb5-dev
+  264  sudo apt-get install unixodbc-dev
+  265  sudo apt-get install python-dev
+  266  history > histoy_commans.txt
